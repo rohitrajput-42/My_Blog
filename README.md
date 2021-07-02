@@ -8,11 +8,11 @@ In this project a user can get the distance between its current location (Curren
 
 #Main Independencies
 
-Django==3.1.2
-django-crispy-forms==1.12.0
-requests==2.25.1
-sqlparse==0.4.1
-urllib3==1.26.4
+1. Django==3.1.2
+2. django-crispy-forms==1.12.0
+3. requests==2.25.1
+4. sqlparse==0.4.1
+5. urllib3==1.26.4
 
 #How to Run
 
