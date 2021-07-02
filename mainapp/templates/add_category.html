@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} Add new Category {% endblock %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %} 
+
+<div class = "container text-center mt-5">
+
+    <h1 class = "display-3"> Add New Category </h1>
+
+    <div class = "form-group">
+        <form class = "mt-5 mb-5" method = "POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button class = "btn btn-lg btn-dark mt-3" style = "width: 250px;"> Add Category </button>
+        </form>
+
+    </div>
+
+</div>
+
+{% else %}
+
+<div class = "container text-center mt-5">
+    <h1 class = "display-3"> You are not authenticated yet !!!... </h1>
+
+    <hr class = "mt-4 mb-4" style = "background: black; height: 3px; border-radius: 50%;">
+
+    <h5> Authenticate Here,  </h5>
+
+    <div>
+        <a class = "btn btn-outline-dark btn-lg  m-5" style = "width: 200px;" href = "{% url 'login' %}"> SignIN </a>
+        <a class = "btn btn-outline-dark btn-lg  m-5" style = "width: 200px;" href = "{% url 'register' %}"> SignUP </a>
+    </div>
+
+</div>
+
+{% endif %}
+
+
+
+{% endblock %}

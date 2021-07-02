@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} Delete Post {% endblock %}
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<div class = "conainer text-center">
+
+    <form method = "POST">
+        {% csrf_token %}
+        <h1 class = "display-2"> Sure you want to delete this post?  </h1>
+        <h1 class = "display-4"> "{{post.title}}" </h1>
+        <div>
+            <button class = "btn btn-lg btn-danger mt-5 mb-5" style = "width: 150px;"> Delete </button> &ensp;&ensp;&ensp;&ensp;&ensp;
+            <a class = "btn btn-success btn-lg mt-5 mb-5" href = "{% url 'home' %}" style = "width: 150px;"> Cancel </a>
+        </div>
+    </form>
+
+</div>
+
+{% else %}
+
+<div class = "container text-center mt-5">
+    <h1 class = "display-3"> You are not authenticated yet !!!... </h1>
+
+    <hr class = "mt-4 mb-4" style = "background: black; height: 3px; border-radius: 50%;">
+
+    <h5> Authenticate Here,  </h5>
+
+    <div>
+        <a class = "btn btn-outline-dark btn-lg  m-5" style = "width: 200px;" href = "{% url 'login' %}"> SignIN </a>
+        <a class = "btn btn-outline-dark btn-lg  m-5" style = "width: 200px;" href = "{% url 'register' %}"> SignUP </a>
+    </div>
+
+</div>
+{% endif %}
+
+
+
+{% endblock %}
